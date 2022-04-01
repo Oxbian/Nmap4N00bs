@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkWindow" id="window">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Nmap4N00bs</property>
+    <property name="resizable">False</property>
+    <property name="default-width">640</property>
+    <property name="default-height">640</property>
+    <property name="icon-name">utilities-system-monitor</property>
+    <child>
+      <object class="GtkFixed" id="fixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkEntry" id="commandEntry">
+            <property name="width-request">500</property>
+            <property name="height-request">32</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="tooltip-text" translatable="yes">If you prefer to use your own command, just put it here, and launch the scan.
+Dont forget to use the -oN output.txt in your commands, else you won't get the result.</property>
+          </object>
+          <packing>
+            <property name="x">120</property>
+            <property name="y">510</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="commandLabel">
+            <property name="width-request">100</property>
+            <property name="height-request">32</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Command:</property>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">510</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="scanButton">
+            <property name="label" translatable="yes">SCAN</property>
+            <property name="width-request">100</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes">Launch the nmap scan</property>
+          </object>
+          <packing>
+            <property name="x">272</property>
+            <property name="y">550</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="HostDiscoveryFrame">
+            <property name="width-request">610</property>
+            <property name="height-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label-xalign">0</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="left-padding">12</property>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkRadioButton" id="listScanBtn">
+                        <property name="label" translatable="yes">List Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Simply list all the target to scan</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                      </object>
+                      <packing>
+                        <property name="x">30</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="pingScanBtn">
+                        <property name="label" translatable="yes">Ping Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Just check if the host are online</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">listScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">170</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="noPingScanBtn">
+                        <property name="label" translatable="yes">P0</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Just assume that all hosts are online</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">listScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">310</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="noScanBtn">
+                        <property name="label" translatable="yes">PN</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">No host discovery, it just assume all host are connected</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">listScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">450</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Host Discovery</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="ScanFrame">
+            <property name="width-request">610</property>
+            <property name="height-request">150</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label-xalign">0</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="left-padding">12</property>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkRadioButton" id="synScanBtn">
+                        <property name="label" translatable="yes">Syn Scan</property>
+                        <property name="width-request">50</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by SYN</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                      </object>
+                      <packing>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="connectScanBtn">
+                        <property name="label" translatable="yes">Connect() Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by Connect()</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">90</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="ackScanBtn">
+                        <property name="label" translatable="yes">ACK Scan</property>
+                        <property name="width-request">50</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by ACK</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">230</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="windowScanBtn">
+                        <property name="label" translatable="yes">Window Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by Window</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">325</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="maimonScanBtn">
+                        <property name="label" translatable="yes">Maimon Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by Maimon</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">453</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="nullScanBtn">
+                        <property name="label" translatable="yes">Null Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by TCP Null</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="finScanBtn">
+                        <property name="label" translatable="yes">FIN Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">37</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by TCP FIN</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">115</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="xmasScanBtn">
+                        <property name="label" translatable="yes">Xmas Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by TCP Xmas</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">230</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="udpScanBtn">
+                        <property name="label" translatable="yes">UDP Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by UDP</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">345</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="ipScanBtn">
+                        <property name="label" translatable="yes">IP Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target by supported IP</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">synScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">462</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Scan</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="DiversFrame">
+            <property name="width-request">610</property>
+            <property name="height-request">140</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label-xalign">0</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="left-padding">12</property>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkRadioButton" id="versionScanBtn">
+                        <property name="label" translatable="yes">Version Scan</property>
+                        <property name="width-request">50</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the version of service open on the target</property>
+                        <property name="active">True</property>
+                        <property name="draw-indicator">False</property>
+                      </object>
+                      <packing>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="scriptScanBtn">
+                        <property name="label" translatable="yes">Script Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">37</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Test script on the target</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">versionScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">125</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="osScanBtn">
+                        <property name="label" translatable="yes">OS Scan</property>
+                        <property name="width-request">90</property>
+                        <property name="height-request">37</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Detect the os of the target</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">versionScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">240</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="verbosityBtn">
+                        <property name="label" translatable="yes">Verbosity</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Add more verbosity to the scan</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">versionScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">350</property>
+                        <property name="y">15</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="ipv6ScanBtn">
+                        <property name="label" translatable="yes">IPV6 Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">37</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Scan the target with IPV6</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">versionScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">470</property>
+                        <property name="y">16</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton" id="allScanBtn">
+                        <property name="label" translatable="yes">All Scan</property>
+                        <property name="width-request">100</property>
+                        <property name="height-request">25</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">False</property>
+                        <property name="tooltip-text" translatable="yes">Active os and version detection</property>
+                        <property name="draw-indicator">False</property>
+                        <property name="group">versionScanBtn</property>
+                      </object>
+                      <packing>
+                        <property name="x">235</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Divers</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">300</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="reportLabel">
+            <property name="width-request">600</property>
+            <property name="height-request">100</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">610</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="targetIPEntry">
+            <property name="width-request">250</property>
+            <property name="height-request">25</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="tooltip-text" translatable="yes">IP of the target you want to scan</property>
+          </object>
+          <packing>
+            <property name="x">195</property>
+            <property name="y">470</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="IPLabel">
+            <property name="width-request">100</property>
+            <property name="height-request">25</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Target IP:</property>
+            <attributes>
+              <attribute name="weight" value="ultraheavy"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">272</property>
+            <property name="y">445</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
