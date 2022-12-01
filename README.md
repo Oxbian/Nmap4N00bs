@@ -4,8 +4,8 @@
 ![Release](https://img.shields.io/badge/Release-v1.0-brightgreen?style=for-the-badge)
 ![Language](https://img.shields.io/badge/Language-C-blue?style=for-the-badge)
 ![Librarie](https://img.shields.io/badge/Librarie-Gtk-green?style=for-the-badge)
-![Size](https://img.shields.io/github/repo-size/ARKAGEDON/Nmap4N00bs?label=SIZE&style=for-the-badge)
-![Licence](https://img.shields.io/github/license/ARKAGEDON/Nmap4N00bs?style=for-the-badge)
+![Size](https://img.shields.io/github/repo-size/Oxbian/Nmap4N00bs?label=SIZE&style=for-the-badge)
+![Licence](https://img.shields.io/github/license/Oxbian/Nmap4N00bs?style=for-the-badge)
 ![OpenSource](https://img.shields.io/badge/OpenSource-blue?style=for-the-badge&logo=opencollective&logoColor=white)
 
 ## Nmap4Noobs what it is?  
@@ -27,7 +27,7 @@ __Don't forget to add -oN output.txt, else you won't see the output__
 For the installation just clone the project and compile for your own computer  
 __You will need GTK3 and basic C libraire for compiling the programs__:  
 
-    git clone https://github.com/ARKAGEDON/Nmap4N00bs.git
+    git clone https://github.com/Oxbian/Nmap4N00bs.git
     cd Nmap4N00bs && make
  
 __Arch & dérivés__:
