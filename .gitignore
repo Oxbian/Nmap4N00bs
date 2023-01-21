@@ -2,6 +2,7 @@
 *.d
 
 # Object files
+obj/
 *.o
 *.ko
 *.obj
@@ -50,3 +51,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Compiled files
+Nmap4N00bs

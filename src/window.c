@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     //Gtk Window init
     gtk_init(&argc, &argv);
-    GtkBuilder *builder = gtk_builder_new_from_file("src/ui.glade");
+    GtkBuilder *builder = gtk_builder_new_from_file("assets/glade/ui.glade");
     GtkWidget *window = GTK_WIDGET (gtk_builder_get_object(builder, "window"));
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
     gtk_builder_connect_signals(builder, NULL);
@@ -61,23 +61,22 @@ int main(int argc, char *argv[])
  * @param btn 
  * @param user_data 
  */
-void nmapScan(GtkButton *btn, gpointer user_data)
+void nmapScan(GtkButton* btn, gpointer user_data)
 {
-    ScanWin *data = (ScanWin*) user_data;
-    FILE *fp;
+    ScanWin* data = (ScanWin*) user_data;
+    FILE* fp;
 
-    if (gtk_entry_get_text_length(GTK_ENTRY(data->commandEntry)) > 2)
-    {
+    if (gtk_entry_get_text_length(GTK_ENTRY(data->commandEntry)) > 2) {
         //If the user want to use a custom command, we launch it
         data->command = malloc(sizeof(char) * gtk_entry_get_text_length(GTK_ENTRY(data->commandEntry)));
-        data->command = gtk_entry_get_text(GTK_ENTRY(data->commandEntry));
+        strncpy(data->command, gtk_entry_get_text(GTK_ENTRY(data->commandEntry)), gtk_entry_get_text_length(GTK_ENTRY(data->commandEntry)));
         fprintf(stderr, "Commande à executer est: %s", data->command);
         fp = popen(data->command, "r");
-        if (fp == NULL)
+        if (fp == NULL) {
             gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, check the syntax of your command. Don't forget to add -oN output.txt to your command for the output");
-    }
-    else
-    {
+        }
+        free(data->command);
+    } else {
         //Else check each scan if they are checked or not, and make the final command as an mix of it
         data->command = malloc(sizeof(char) * 75);
         strncpy(data->command, "nmap", 5);
@@ -128,19 +127,22 @@ void nmapScan(GtkButton *btn, gpointer user_data)
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(data->allScanBtn)))
             strcat(data->command, " -A"); 
 
-        char *ip = gtk_entry_get_text(GTK_ENTRY(data->targetIPEntry));
-        if (ip != NULL && isValidIp(ip))
-        {
+        char* ip = malloc(sizeof(char) * gtk_entry_get_text_length(GTK_ENTRY(data->targetIPEntry)));
+        strncpy(ip, gtk_entry_get_text(GTK_ENTRY(data->targetIPEntry)), gtk_entry_get_text_length(GTK_ENTRY(data->targetIPEntry)));
+        if (ip != NULL && isValidIp(ip)) {
             strcat(data->command, " ");
             strcat(data->command, ip);
             strcat(data->command, " -oN output.txt");
             fprintf(stderr, "Commande à executer est: %s", data->command);
             fp = popen(data->command, "r");
-            if (fp == NULL)
+            if (fp == NULL) {
                 gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, check all the parameters all well input!");
-        }
-        else
+            }
+        } else {
             gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, some parameters aren't correct or the IP isn't correct!");
+        }
+        free(ip);
+        free(data->command);
 
     }
     pclose(fp);
@@ -154,7 +156,7 @@ void nmapScan(GtkButton *btn, gpointer user_data)
  */
 int isValidIp(const char* ip)
 {
-    char *pattern ="^([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))."
+    char* pattern ="^([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))."
          "([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))."
          "([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))."
          "([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$"; //A lenghful regex for IP address
