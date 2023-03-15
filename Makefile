@@ -20,7 +20,7 @@ SRCS        := $(SRCS:%=$(SRC_DIR)/%)
 OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC          := clang
-CLIBFLAGS   := `pkg-config --libs gtk+-3.0` -export-dynamic
+CLIBFLAGS   := `pkg-config --libs gtk+-3.0`
 CFLAGS      := `pkg-config --cflags gtk+-3.0` -Wall
 CPPFLAGS    := -I include
 
