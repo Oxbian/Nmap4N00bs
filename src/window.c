@@ -76,6 +76,7 @@ void nmapScan(GtkButton* btn, gpointer user_data)
             gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, check the syntax of your command. Don't forget to add -oN output.txt to your command for the output");
         }
         free(data->command);
+        pclose(fp);
     } else {
         //Else check each scan if they are checked or not, and make the final command as an mix of it
         data->command = malloc(sizeof(char) * 75);
@@ -138,6 +139,7 @@ void nmapScan(GtkButton* btn, gpointer user_data)
             if (fp == NULL) {
                 gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, check all the parameters all well input!");
             }
+            pclose(fp);
         } else {
             gtk_label_set_text(GTK_LABEL(data->reportLabel), "Error, some parameters aren't correct or the IP isn't correct!");
         }
@@ -145,7 +147,6 @@ void nmapScan(GtkButton* btn, gpointer user_data)
         free(data->command);
 
     }
-    pclose(fp);
 }
 
 /**
